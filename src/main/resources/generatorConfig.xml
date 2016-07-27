@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<!-- 生成前需要将数据库驱动依赖包手动添加到classpath（maven导入的不行。。。） -->
+<generatorConfiguration>
+    <properties resource="generator.properties"></properties>
+    <classPathEntry location="${generator.driverLocation}"></classPathEntry>
+    <!-- business module -->
+    <context id="control" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${generator.driverClass}"
+                        connectionURL="${generator.connectionURL}"
+                        userId="${generator.userId}" password="${generator.password}"/>
+
+        <javaModelGenerator targetPackage="cn.springmvc.model"
+                            targetProject="E:\\IntellijProjects\\SpringMVC\\src\\main\\java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="sqlmap"
+                         targetProject="E:\\IntellijProjects\\SpringMVC\\src\\main\\resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="cn.springmvc.mapper"
+                             targetProject="E:\\IntellijProjects\\SpringMVC\\src\\main\\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="kb_share" domainObjectName="Share"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+        />
+    </context>
+
+
+</generatorConfiguration>

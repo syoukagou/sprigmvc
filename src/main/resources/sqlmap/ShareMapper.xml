@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.springmvc.mapper.ShareMapper">
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.Share">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="modified_at" jdbcType="TIMESTAMP" property="modifiedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, author, comment, created_at, modified_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from kb_share
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from kb_share
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.Share">
+    insert into kb_share (id, author, comment, 
+      created_at, modified_at)
+    values (#{id,jdbcType=BIGINT}, #{author,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{modifiedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.Share">
+    insert into kb_share
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="modifiedAt != null">
+        modified_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedAt != null">
+        #{modifiedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.Share">
+    update kb_share
+    <set>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedAt != null">
+        modified_at = #{modifiedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.Share">
+    update kb_share
+    set author = #{author,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      modified_at = #{modifiedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.Share">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="modified_at" jdbcType="TIMESTAMP" property="modifiedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, author, comment, created_at, modified_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from kb_share
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from kb_share
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.Share">
+    insert into kb_share (id, author, comment, 
+      created_at, modified_at)
+    values (#{id,jdbcType=BIGINT}, #{author,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{modifiedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.Share">
+    insert into kb_share
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="modifiedAt != null">
+        modified_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedAt != null">
+        #{modifiedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.Share">
+    update kb_share
+    <set>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedAt != null">
+        modified_at = #{modifiedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.Share">
+    update kb_share
+    set author = #{author,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      modified_at = #{modifiedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.Share">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="modified_at" jdbcType="TIMESTAMP" property="modifiedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, author, comment, created_at, modified_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from kb_share
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from kb_share
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.Share">
+    insert into kb_share (id, author, comment, 
+      created_at, modified_at)
+    values (#{id,jdbcType=BIGINT}, #{author,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{modifiedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.Share">
+    insert into kb_share
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="modifiedAt != null">
+        modified_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedAt != null">
+        #{modifiedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.Share">
+    update kb_share
+    <set>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedAt != null">
+        modified_at = #{modifiedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.Share">
+    update kb_share
+    set author = #{author,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      modified_at = #{modifiedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="cn.springmvc.model.Share">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="modified_at" jdbcType="TIMESTAMP" property="modifiedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, author, comment, created_at, modified_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from kb_share
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from kb_share
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.springmvc.model.Share">
+    insert into kb_share (id, author, comment, 
+      created_at, modified_at)
+    values (#{id,jdbcType=BIGINT}, #{author,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{modifiedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.springmvc.model.Share">
+    insert into kb_share
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="comment != null">
+        comment,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="modifiedAt != null">
+        modified_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedAt != null">
+        #{modifiedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.springmvc.model.Share">
+    update kb_share
+    <set>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        comment = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifiedAt != null">
+        modified_at = #{modifiedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.springmvc.model.Share">
+    update kb_share
+    set author = #{author,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      modified_at = #{modifiedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
